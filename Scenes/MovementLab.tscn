@@ -8,6 +8,6 @@
 position = Vector2(80, 360)
 script = ExtResource("1_130km")
 
-[node name="Visual" type="Polygon2D" parent="Mover" unique_id=452420986]
+[node name="Visual2" type="Polygon2D" parent="Mover" unique_id=1692275276]
 color = Color(0.2784314, 1, 1, 1)
 polygon = PackedVector2Array(-16, -24, 16, -24, 16, 24, -16, 24)

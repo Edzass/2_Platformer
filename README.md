@@ -17,3 +17,7 @@
 ### Novērojumi 
 1. Ar DELTA: Mainot kadru biežumu no 60 Hz uz 30 Hz, objekta kustība kļuva nedaudz raustīga, bet laiks, kurā tas šķērso ekrānu, palika vienāds.
 2. Bez DELTA: Objekts sāka pārvietoties ātri, jo katrā solī pozīcija tika palielināta par 200 pikseļiem, nevis par daļu no sekundes.
+
+
+### 2.2 stunda 3.4 uzdevums
+Velocity netiek reizināts ar delta, jo automātiski tiek reizināts ar ātrumu.
