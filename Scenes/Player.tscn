@@ -14,5 +14,3 @@ shape = SubResource("RectangleShape2D_uk3te")
 
 [node name="Visual" type="Polygon2D" parent="." unique_id=441915702]
 polygon = PackedVector2Array(-16, -24, 16, -24, 16, 24, -16, 24)
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=258648579]
