@@ -21,3 +21,6 @@
 
 ### 2.2 stunda 3.4 uzdevums
 Velocity netiek reizināts ar delta, jo automātiski tiek reizināts ar ātrumu.
+
+###2.3 stunda 1.3 uzdevums
+Mainot "health" vērtību uz "0"- spēle ir beigusies ; "zem 30 "- uzmanību ; "virs 30" -viss kārtībā.
