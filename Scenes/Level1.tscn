@@ -1,8 +1,72 @@
 [gd_scene format=3 uid="uid://ch7lxc3ysrljr"]
 
 [ext_resource type="PackedScene" uid="uid://pbmoqjvodepq" path="res://Scenes/Player.tscn" id="1_2llne"]
+[ext_resource type="PackedScene" uid="uid://wfjvoibvumck" path="res://Scenes/Pickup.tscn" id="2_q12u6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mkk7"]
+size = Vector2(160, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uk3te"]
+size = Vector2(1280, 40)
 
 [node name="Level1" type="Node2D" unique_id=515757387]
 
+[node name="Platform1" type="StaticBody2D" parent="." unique_id=747256104]
+position = Vector2(280, 560)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=87501644]
+shape = SubResource("RectangleShape2D_5mkk7")
+
+[node name="Visual" type="Polygon2D" parent="Platform1" unique_id=1598471124]
+polygon = PackedVector2Array(-80, -10, 80, -10, 80, 10, -80, 10)
+
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=785177598]
+position = Vector2(480, 470)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=85471066]
+shape = SubResource("RectangleShape2D_5mkk7")
+
+[node name="Visual" type="Polygon2D" parent="Platform2" unique_id=763813018]
+polygon = PackedVector2Array(-80, -10, 80, -10, 80, 10, -80, 10)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1139941857]
+position = Vector2(640, 660)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=762357442]
+shape = SubResource("RectangleShape2D_uk3te")
+
+[node name="Visual" type="Polygon2D" parent="Ground" unique_id=1241306082]
+polygon = PackedVector2Array(-640, -20, 640, -20, 640, 20, -640, 20)
+
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=500494810]
+position = Vector2(680, 380)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=1386710942]
+shape = SubResource("RectangleShape2D_5mkk7")
+
+[node name="Visual" type="Polygon2D" parent="Platform3" unique_id=1866321217]
+polygon = PackedVector2Array(-80, -10, 80, -10, 80, 10, -80, 10)
+
 [node name="Player" parent="." unique_id=1646367544 instance=ExtResource("1_2llne")]
 position = Vector2(80, 570)
+
+[node name="Coin1" parent="." unique_id=1962830983 instance=ExtResource("2_q12u6")]
+position = Vector2(150, 600)
+
+[node name="Coin2" parent="." unique_id=1508257460 instance=ExtResource("2_q12u6")]
+position = Vector2(280, 525)
+
+[node name="Coin3" parent="." unique_id=1058010333 instance=ExtResource("2_q12u6")]
+position = Vector2(600, 600)
+
+[node name="Coin4" parent="." unique_id=1033803029 instance=ExtResource("2_q12u6")]
+position = Vector2(1050, 600)
+
+[node name="Key" parent="." unique_id=211184848 instance=ExtResource("2_q12u6")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(680, 345)
+Type = 2
+
+[node name="Gem" parent="." unique_id=1501012483 instance=ExtResource("2_q12u6")]
+position = Vector2(480, 435)
+Type = 1
