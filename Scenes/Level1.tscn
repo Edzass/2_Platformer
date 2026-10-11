@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://ch7lxc3ysrljr"]
 
 [ext_resource type="PackedScene" uid="uid://pbmoqjvodepq" path="res://Scenes/Player.tscn" id="1_2llne"]
+[ext_resource type="Script" uid="uid://c35wtfflxv3ut" path="res://Scripts/Level.cs" id="1_joc8x"]
 [ext_resource type="PackedScene" uid="uid://wfjvoibvumck" path="res://Scenes/Pickup.tscn" id="2_q12u6"]
+[ext_resource type="Texture2D" uid="uid://dp5w0eqfeooo2" path="res://Art/telefons.png" id="4_jghel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mkk7"]
 size = Vector2(160, 20)
@@ -9,7 +11,19 @@ size = Vector2(160, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uk3te"]
 size = Vector2(1280, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6mbx"]
+size = Vector2(46, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msd6u"]
+size = Vector2(80, 30)
+
 [node name="Level1" type="Node2D" unique_id=515757387]
+script = ExtResource("1_joc8x")
+GameTitle = "Skrējiens pēc jaunā Iphone"
+Mission = "Savāc punktus un atrodi jauno Iphone telefonu/"
+WinText = "Tu esi uzvarējis!"
+LoseText = "Tev neizdevās uzvarēt!"
+LockedText = "Vispirms savāc nepieciešamos punktus."
 
 [node name="Platform1" type="StaticBody2D" parent="." unique_id=747256104]
 position = Vector2(280, 560)
@@ -18,6 +32,7 @@ position = Vector2(280, 560)
 shape = SubResource("RectangleShape2D_5mkk7")
 
 [node name="Visual" type="Polygon2D" parent="Platform1" unique_id=1598471124]
+color = Color(0.28235295, 1, 1, 1)
 polygon = PackedVector2Array(-80, -10, 80, -10, 80, 10, -80, 10)
 
 [node name="Platform2" type="StaticBody2D" parent="." unique_id=785177598]
@@ -27,6 +42,7 @@ position = Vector2(480, 470)
 shape = SubResource("RectangleShape2D_5mkk7")
 
 [node name="Visual" type="Polygon2D" parent="Platform2" unique_id=763813018]
+color = Color(0.29803923, 1, 1, 1)
 polygon = PackedVector2Array(-80, -10, 80, -10, 80, 10, -80, 10)
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1139941857]
@@ -45,6 +61,7 @@ position = Vector2(680, 380)
 shape = SubResource("RectangleShape2D_5mkk7")
 
 [node name="Visual" type="Polygon2D" parent="Platform3" unique_id=1866321217]
+color = Color(0.3137255, 1, 1, 1)
 polygon = PackedVector2Array(-80, -10, 80, -10, 80, 10, -80, 10)
 
 [node name="Player" parent="." unique_id=1646367544 instance=ExtResource("1_2llne")]
@@ -64,9 +81,66 @@ position = Vector2(1050, 600)
 
 [node name="Key" parent="." unique_id=211184848 instance=ExtResource("2_q12u6")]
 modulate = Color(0, 1, 1, 1)
-position = Vector2(680, 345)
+position = Vector2(680, 327.42)
 Type = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=1223681963]
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("4_jghel")
 
 [node name="Gem" parent="." unique_id=1501012483 instance=ExtResource("2_q12u6")]
 position = Vector2(480, 435)
 Type = 1
+
+[node name="Finish" type="Area2D" parent="." unique_id=213345807]
+light_mask = 2
+visibility_layer = 4
+position = Vector2(850, 590)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish" unique_id=780016189]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_u6mbx")
+
+[node name="Visual" type="Polygon2D" parent="Finish" unique_id=1259344410]
+color = Color(0, 1, 0.17254902, 1)
+polygon = PackedVector2Array(-24, -50, 24, -50, 24, 50, -24, 50)
+
+[node name="Hazard" type="Area2D" parent="." unique_id=1287731125]
+light_mask = 2
+visibility_layer = 4
+position = Vector2(440, 625)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard" unique_id=1579748146]
+shape = SubResource("RectangleShape2D_msd6u")
+
+[node name="Visual" type="Polygon2D" parent="Hazard" unique_id=1485958891]
+color = Color(0.8583174, 0, 0.2030023, 1)
+polygon = PackedVector2Array(-40, -15, 40, -15, 40, 15, -40, 15)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=867178062]
+
+[node name="Instructions" type="Label" parent="HUD" unique_id=375283821]
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 1260.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
+[node name="Status" type="Label" parent="HUD" unique_id=438350106]
+offset_left = 20.0
+offset_top = 48.0
+offset_right = 1260.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
+[node name="Message" type="Label" parent="HUD" unique_id=1711710761]
+offset_left = 20.0
+offset_top = 80.0
+offset_right = 1260.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 20
+text = "Pārbaude
+"
+autowrap_mode = 3
