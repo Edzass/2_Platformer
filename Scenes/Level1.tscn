@@ -4,12 +4,16 @@
 [ext_resource type="Script" uid="uid://c35wtfflxv3ut" path="res://Scripts/Level.cs" id="1_joc8x"]
 [ext_resource type="PackedScene" uid="uid://wfjvoibvumck" path="res://Scenes/Pickup.tscn" id="2_q12u6"]
 [ext_resource type="Texture2D" uid="uid://dp5w0eqfeooo2" path="res://Art/telefons.png" id="4_jghel"]
+[ext_resource type="Texture2D" uid="uid://ygipgiylstld" path="res://Art/plava.jpg" id="5_slnnj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mkk7"]
 size = Vector2(160, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uk3te"]
 size = Vector2(1280, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jghel"]
+size = Vector2(80.5, 90)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6mbx"]
 size = Vector2(46, 94)
@@ -52,6 +56,7 @@ position = Vector2(640, 660)
 shape = SubResource("RectangleShape2D_uk3te")
 
 [node name="Visual" type="Polygon2D" parent="Ground" unique_id=1241306082]
+color = Color(0.1833334, 1, 0, 1)
 polygon = PackedVector2Array(-640, -20, 640, -20, 640, 20, -640, 20)
 
 [node name="Platform3" type="StaticBody2D" parent="." unique_id=500494810]
@@ -64,17 +69,30 @@ shape = SubResource("RectangleShape2D_5mkk7")
 color = Color(0.3137255, 1, 1, 1)
 polygon = PackedVector2Array(-80, -10, 80, -10, 80, 10, -80, 10)
 
+[node name="Platform4" type="StaticBody2D" parent="." unique_id=527371671]
+position = Vector2(1360, 760)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=1240146170]
+position = Vector2(-678.25, -165)
+shape = SubResource("RectangleShape2D_jghel")
+
+[node name="Visual" type="Polygon2D" parent="Platform4" unique_id=1302314657]
+position = Vector2(-678, -165)
+scale = Vector2(0.5125004, 4.5000005)
+color = Color(0.3137255, 1, 1, 1)
+polygon = PackedVector2Array(-80, -10, 80, -10, 80, 10, -80, 10)
+
 [node name="Player" parent="." unique_id=1646367544 instance=ExtResource("1_2llne")]
 position = Vector2(80, 570)
 
 [node name="Coin1" parent="." unique_id=1962830983 instance=ExtResource("2_q12u6")]
-position = Vector2(150, 600)
+position = Vector2(348, 608)
 
 [node name="Coin2" parent="." unique_id=1508257460 instance=ExtResource("2_q12u6")]
 position = Vector2(280, 525)
 
 [node name="Coin3" parent="." unique_id=1058010333 instance=ExtResource("2_q12u6")]
-position = Vector2(600, 600)
+position = Vector2(547, 610)
 
 [node name="Coin4" parent="." unique_id=1033803029 instance=ExtResource("2_q12u6")]
 position = Vector2(1050, 600)
@@ -90,6 +108,7 @@ texture = ExtResource("4_jghel")
 
 [node name="Gem" parent="." unique_id=1501012483 instance=ExtResource("2_q12u6")]
 position = Vector2(480, 435)
+scale = Vector2(1.81, 1.81)
 Type = 1
 
 [node name="Finish" type="Area2D" parent="." unique_id=213345807]
@@ -98,11 +117,12 @@ visibility_layer = 4
 position = Vector2(850, 590)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish" unique_id=780016189]
-position = Vector2(-1, 0)
+position = Vector2(377, 2)
 shape = SubResource("RectangleShape2D_u6mbx")
 
 [node name="Visual" type="Polygon2D" parent="Finish" unique_id=1259344410]
-color = Color(0, 1, 0.17254902, 1)
+position = Vector2(376, 2)
+color = Color(0, 0.116666794, 1, 1)
 polygon = PackedVector2Array(-24, -50, 24, -50, 24, 50, -24, 50)
 
 [node name="Hazard" type="Area2D" parent="." unique_id=1287731125]
@@ -144,3 +164,11 @@ theme_override_font_sizes/font_size = 20
 text = "Pārbaude
 "
 autowrap_mode = 3
+
+[node name="Background" type="Sprite2D" parent="." unique_id=334356618]
+modulate = Color(0.42, 0.42, 0.42, 1)
+self_modulate = Color(0.82, 0.82, 0.82, 1)
+z_index = -1
+position = Vector2(639.79346, 380.2283)
+scale = Vector2(1.2162234, 1.145155)
+texture = ExtResource("5_slnnj")

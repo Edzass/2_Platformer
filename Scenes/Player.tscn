@@ -1,17 +1,25 @@
 [gd_scene format=3 uid="uid://pbmoqjvodepq"]
 
 [ext_resource type="Script" uid="uid://otv5ekhfpjci" path="res://Scripts/Player.cs" id="1_rpqav"]
+[ext_resource type="Texture2D" uid="uid://bygdoq0cw0yn4" path="res://Art/sienazis.png" id="2_kyqiw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uk3te"]
-size = Vector2(32, 48)
+size = Vector2(58, 48)
 
 [node name="Player" type="CharacterBody2D" unique_id=1633020164]
 script = ExtResource("1_rpqav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=399718531]
 visibility_layer = 2
+position = Vector2(5, 1)
 shape = SubResource("RectangleShape2D_uk3te")
 
 [node name="Visual" type="Polygon2D" parent="." unique_id=441915702]
+visible = false
 color = Color(0.05991117, 1, 0.17335221, 1)
 polygon = PackedVector2Array(-16, -24, 16, -24, 16, 24, -16, 24)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1156002561]
+position = Vector2(5.999999, 3)
+scale = Vector2(0.33333337, 0.34473684)
+texture = ExtResource("2_kyqiw")
